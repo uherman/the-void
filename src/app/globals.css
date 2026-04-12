@@ -2,9 +2,90 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Catppuccin Latte (light) */
+:root {
+  --ctp-white:    #eff1f5;
+  --ctp-gray-50:  #e6e9ef;
+  --ctp-gray-100: #dce0e8;
+  --ctp-gray-200: #ccd0da;
+  --ctp-gray-300: #bcc0cc;
+  --ctp-gray-400: #acb0be;
+  --ctp-gray-500: #9ca0b0;
+  --ctp-gray-600: #6c6f85;
+  --ctp-gray-700: #5c5f77;
+  --ctp-gray-800: #4c4f69;
+  --ctp-gray-900: #4c4f69;
+  --ctp-gray-950: #292c3c;
+
+  --ctp-blue-300:  #7287fd;  /* Lavender — focus borders */
+  --ctp-blue-400:  #7287fd;  /* Lavender — avatar gradient, text accents */
+  --ctp-blue-500:  #7135c2;  /* muted purple — focus rings */
+  --ctp-blue-600:  #7135c2;  /* muted purple — buttons, logo */
+  --ctp-blue-700:  #612db0;  /* muted purple darker — hover */
+
+  --ctp-purple-500:  #8839ef;  /* Mauve — avatar gradient end */
+  --ctp-emerald-400: #179299;
+  --ctp-cyan-500:    #04a5e5;
+  --ctp-red-500:     #d20f39;
+  --ctp-amber-500:   #df8e1d;
+}
+
+/* Catppuccin Macchiato (dark) */
+.dark {
+  --ctp-white:    #eff1f5;  /* keep near-white so text-white stays readable on colored bg */
+  --ctp-gray-50:  #24273a;
+  --ctp-gray-100: #cad3f5;
+  --ctp-gray-200: #b8c0e0;
+  --ctp-gray-300: #a5adcb;
+  --ctp-gray-400: #939ab7;
+  --ctp-gray-500: #8087a2;
+  --ctp-gray-600: #6e738d;
+  --ctp-gray-700: #494d64;
+  --ctp-gray-800: #363a4f;
+  --ctp-gray-900: #24273a;
+  --ctp-gray-950: #181926;
+
+  --ctp-blue-300:  #c6a0f6;  /* Mauve — focus borders */
+  --ctp-blue-400:  #c6a0f6;  /* Mauve — text accents */
+  --ctp-blue-500:  #c6a0f6;  /* Mauve — focus rings */
+  --ctp-blue-600:  #6228c0;  /* muted purple — buttons (~7.8:1 with white) */
+  --ctp-blue-700:  #5824aa;  /* muted purple darker — hover */
+
+  --ctp-purple-500:  #b7bdf8;  /* Lavender — avatar gradient end */
+  --ctp-emerald-400: #8bd5ca;
+  --ctp-cyan-500:    #91d7e3;
+  --ctp-red-500:     #ed8796;
+  --ctp-amber-500:   #eed49f;
+}
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-white:    var(--ctp-white);
+  --color-gray-50:  var(--ctp-gray-50);
+  --color-gray-100: var(--ctp-gray-100);
+  --color-gray-200: var(--ctp-gray-200);
+  --color-gray-300: var(--ctp-gray-300);
+  --color-gray-400: var(--ctp-gray-400);
+  --color-gray-500: var(--ctp-gray-500);
+  --color-gray-600: var(--ctp-gray-600);
+  --color-gray-700: var(--ctp-gray-700);
+  --color-gray-800: var(--ctp-gray-800);
+  --color-gray-900: var(--ctp-gray-900);
+  --color-gray-950: var(--ctp-gray-950);
+
+  --color-blue-300:  var(--ctp-blue-300);
+  --color-blue-400:  var(--ctp-blue-400);
+  --color-blue-500:  var(--ctp-blue-500);
+  --color-blue-600:  var(--ctp-blue-600);
+  --color-blue-700:  var(--ctp-blue-700);
+
+  --color-purple-500:  var(--ctp-purple-500);
+  --color-emerald-400: var(--ctp-emerald-400);
+  --color-cyan-500:    var(--ctp-cyan-500);
+  --color-red-500:     var(--ctp-red-500);
+  --color-amber-500:   var(--ctp-amber-500);
 }
 
 * {
@@ -45,10 +126,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: var(--ctp-gray-200);
   border-radius: 3px;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #374151;
+  background: var(--ctp-gray-700);
 }
