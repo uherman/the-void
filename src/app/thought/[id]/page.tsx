@@ -4,6 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import { ThoughtWithMeta, CommentWithAuthor } from "@/lib/types";
 import { CommentSection } from "@/components/comment-section";
 import { RelativeTime } from "@/components/relative-time";
+import { CountdownTimer } from "@/components/countdown-timer";
 
 export const dynamic = "force-dynamic";
 
@@ -83,8 +84,10 @@ export default async function ThoughtPage({
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
               {thought.author_name}
             </span>
-            <div>
+            <div className="flex items-center gap-2">
               <RelativeTime date={thought.created_at} />
+              <span className="text-gray-300 dark:text-gray-700">&middot;</span>
+              <CountdownTimer createdAt={thought.created_at} />
             </div>
           </div>
         </div>

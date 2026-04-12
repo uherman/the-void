@@ -21,6 +21,7 @@ export function RelativeTime({ date }: { date: string }) {
       dateTime={date}
       title={new Date(date).toLocaleString()}
       className="text-xs text-gray-400 dark:text-gray-500"
+      suppressHydrationWarning
     >
       {text}
     </time>

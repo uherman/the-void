@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ThoughtWithMeta } from "@/lib/types";
 import { RelativeTime } from "./relative-time";
+import { CountdownTimer } from "./countdown-timer";
 
 export function ThoughtCard({ thought }: { thought: ThoughtWithMeta }) {
   return (
@@ -25,24 +26,27 @@ export function ThoughtCard({ thought }: { thought: ThoughtWithMeta }) {
           {thought.content}
         </p>
 
-        <div className="mt-3 flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500">
-          <svg
-            className="h-3.5 w-3.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-            />
-          </svg>
-          <span>
-            {thought.comment_count}
-            {thought.comment_count === 1 ? " comment" : " comments"}
-          </span>
+        <div className="mt-3 flex items-center justify-between text-xs text-gray-400 dark:text-gray-500">
+          <div className="flex items-center gap-1">
+            <svg
+              className="h-3.5 w-3.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
+            <span>
+              {thought.comment_count}
+              {thought.comment_count === 1 ? " comment" : " comments"}
+            </span>
+          </div>
+          <CountdownTimer createdAt={thought.created_at} />
         </div>
       </article>
     </Link>

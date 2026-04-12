@@ -5,7 +5,8 @@ import { getSupabaseBrowserClient } from "@/lib/supabase/browser";
 import { ThoughtWithMeta } from "@/lib/types";
 
 export function useRealtimeThoughts(
-  onNewThought: (thought: ThoughtWithMeta) => void
+  onNewThought: (thought: ThoughtWithMeta) => void,
+  onDeleteThought?: (id: string) => void
 ) {
   useEffect(() => {
     const supabase = getSupabaseBrowserClient();
@@ -27,10 +28,19 @@ export function useRealtimeThoughts(
           }
         }
       )
+      .on(
+        "postgres_changes",
+        { event: "DELETE", schema: "public", table: "thoughts" },
+        (payload) => {
+          if (onDeleteThought && payload.old?.id) {
+            onDeleteThought(payload.old.id as string);
+          }
+        }
+      )
       .subscribe();
 
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [onNewThought]);
+  }, [onNewThought, onDeleteThought]);
 }
