@@ -46,15 +46,15 @@ export function ThoughtFeed({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       <AnimatePresence initial={false}>
         {thoughts.map((thought) => (
           <motion.div
             key={thought.id}
-            initial={{ opacity: 0, y: -20, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, filter: "blur(4px)", scale: 0.98 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             layout
           >
             <ThoughtCard thought={thought} />

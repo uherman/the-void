@@ -9,7 +9,7 @@ function getTimeRemaining(createdAt: string): number {
 }
 
 function formatRemaining(ms: number): string {
-  if (ms <= 0) return "expired";
+  if (ms <= 0) return "gone";
 
   const totalSeconds = Math.floor(ms / 1000);
   const hours = Math.floor(totalSeconds / 3600);
@@ -38,26 +38,16 @@ export function CountdownTimer({ createdAt }: { createdAt: string }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1 text-xs ${
+      className={`inline-flex items-center gap-1 text-[11px] ${
         isUrgent
-          ? "text-red-500 dark:text-red-400"
+          ? "text-red-500/70"
           : isWarning
-            ? "text-amber-500 dark:text-amber-400"
-            : "text-gray-400 dark:text-gray-500"
+            ? "text-amber-500/50"
+            : "text-white/20"
       }`}
       title={`Expires ${new Date(new Date(createdAt).getTime() + THOUGHT_TTL_MS).toLocaleString()}`}
       suppressHydrationWarning
     >
-      <svg
-        className="h-3 w-3"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <circle cx="12" cy="12" r="9" />
-        <path strokeLinecap="round" d="M12 7v5l3 3" />
-      </svg>
       {text}
     </span>
   );

@@ -34,9 +34,9 @@ Hooks in `src/hooks/` subscribe to Postgres INSERT changes on base tables (`thou
 
 All server actions validate UUID format, verify user/thought existence, enforce content length limits, and apply rate limiting by checking the `created_at` of the user's most recent row (10s cooldown for thoughts, 5s for comments). Constants live in `src/lib/constants.ts`.
 
-### Tailwind v4 + Dark Mode
+### Tailwind v4 + Void Theme
 
-Tailwind 4 uses CSS-based config in `globals.css` (no `tailwind.config.ts`). Dark mode uses `@custom-variant dark (&:where(.dark, .dark *))` for class-based toggling via `next-themes`.
+Tailwind 4 uses CSS-based config in `globals.css` (no `tailwind.config.ts`). The app is dark-only (forced via `next-themes` `forcedTheme="dark"`). Custom `void-*` color tokens are defined in the `@theme inline` block. No light mode exists.
 
 ## Database
 

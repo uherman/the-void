@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, VT323 } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/header";
 import { UserSetup } from "@/components/user-setup";
@@ -15,15 +15,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const vt323 = VT323({
-  weight: "400",
-  variable: "--font-vt323",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Thoughts",
-  description: "Share your thoughts with the world",
+  title: "The Void",
+  description: "Share your thoughts with the void",
 };
 
 export default function RootLayout({
@@ -34,10 +28,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${vt323.variable} h-full`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full dark`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-page text-gray-800 dark:text-gray-100 antialiased">
+      <body className="min-h-full flex flex-col">
         <Providers>
           <Header />
           <main className="flex-1">{children}</main>

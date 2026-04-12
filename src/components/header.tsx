@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useUser } from "@/lib/user-context";
-import { ThemeToggle } from "./theme-toggle";
 import { MAX_DISPLAY_NAME_LENGTH } from "@/lib/constants";
 
 export function Header() {
@@ -22,33 +21,13 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 win-panel">
-      <div className="mx-auto flex h-12 max-w-2xl items-center justify-between px-3">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div
-            className="h-7 w-7 flex items-center justify-center bg-blue-600 text-white"
-            style={{
-              boxShadow:
-                "inset 1px 1px 0 rgba(255,255,255,0.3), inset -1px -1px 0 rgba(0,0,0,0.3)",
-            }}
-          >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-              />
-            </svg>
-          </div>
-          <span className="font-pixel text-lg text-gray-800 dark:text-gray-100 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
-            Thoughts
-          </span>
+    <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-black/80 backdrop-blur-md">
+      <div className="mx-auto flex h-12 max-w-2xl items-center justify-between px-4">
+        <Link
+          href="/"
+          className="text-sm font-medium tracking-widest uppercase text-white/50 hover:text-white/80 transition-colors"
+        >
+          void
         </Link>
 
         <div className="flex items-center gap-2">
@@ -58,7 +37,7 @@ export function Header() {
                 setInput(displayName === "Anonymous" ? "" : displayName);
                 setEditing(true);
               }}
-              className="win-button px-2 py-1 text-xs text-gray-700 dark:text-gray-300"
+              className="px-2 py-1 text-xs text-white/40 hover:text-white/70 transition-colors"
               title="Change name"
             >
               {displayName}
@@ -71,33 +50,29 @@ export function Header() {
                 e.preventDefault();
                 handleSave();
               }}
-              className="flex items-center gap-1.5"
+              className="flex items-center gap-2"
             >
-              <div className="win-inset">
-                <input
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  maxLength={MAX_DISPLAY_NAME_LENGTH}
-                  autoFocus
-                  onBlur={() => {
-                    if (!saving) setEditing(false);
-                  }}
-                  className="w-24 bg-transparent px-1.5 py-0.5 text-xs text-gray-800 dark:text-gray-200 focus:outline-none"
-                />
-              </div>
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                maxLength={MAX_DISPLAY_NAME_LENGTH}
+                autoFocus
+                onBlur={() => {
+                  if (!saving) setEditing(false);
+                }}
+                className="w-24 bg-void-surface border border-white/10 rounded-lg px-2.5 py-1 text-xs text-white/80 focus:outline-none focus:border-white/20 transition-colors"
+              />
               <button
                 type="submit"
                 disabled={!input.trim() || saving}
                 onMouseDown={(e) => e.preventDefault()}
-                className="win-button-primary px-2 py-0.5 text-xs font-bold"
+                className="px-2.5 py-1 text-xs text-void-accent bg-void-surface rounded-lg hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               >
                 Save
               </button>
             </form>
           )}
-
-          <ThemeToggle />
         </div>
       </div>
     </header>

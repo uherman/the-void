@@ -38,16 +38,6 @@ async function getComments(thoughtId: string): Promise<CommentWithAuthor[]> {
   return (data ?? []) as CommentWithAuthor[];
 }
 
-function TitleBarButtons() {
-  return (
-    <div className="flex gap-[3px] ml-auto">
-      <span className="win-titlebar-btn">_</span>
-      <span className="win-titlebar-btn">&#9633;</span>
-      <span className="win-titlebar-btn">&times;</span>
-    </div>
-  );
-}
-
 export default async function ThoughtPage({
   params,
 }: {
@@ -67,10 +57,10 @@ export default async function ThoughtPage({
     <div className="mx-auto max-w-2xl px-4 py-6">
       <Link
         href="/"
-        className="inline-flex items-center gap-1.5 win-button px-3 py-1.5 text-sm text-gray-700 dark:text-gray-300 mb-4 font-pixel"
+        className="inline-flex items-center gap-1.5 text-xs text-white/30 hover:text-white/60 transition-colors mb-6"
       >
         <svg
-          className="h-4 w-4"
+          className="h-3.5 w-3.5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -85,36 +75,21 @@ export default async function ThoughtPage({
         Back
       </Link>
 
-      <article className="win-panel overflow-hidden mb-6">
-        <div className="win-titlebar">
-          <div className="h-6 w-6 rounded-sm bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-[10px] font-bold text-white select-none">
-            {thought.author_name.charAt(0).toUpperCase()}
-          </div>
-          <span className="flex-1">{thought.author_name}</span>
-          <TitleBarButtons />
-        </div>
-        <div className="p-4">
-          <div className="win-inset p-4 mb-3">
-            <p className="text-base leading-relaxed text-gray-800 dark:text-gray-200 whitespace-pre-wrap break-words">
-              {thought.content}
-            </p>
-          </div>
-          <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-            <RelativeTime date={thought.created_at} />
-            <span className="text-gray-300 dark:text-gray-600">&middot;</span>
-            <CountdownTimer createdAt={thought.created_at} />
-          </div>
+      <article className="rounded-lg border border-white/[0.06] bg-void-surface p-5 mb-6">
+        <p className="text-base leading-relaxed text-white/80 whitespace-pre-wrap break-words">
+          {thought.content}
+        </p>
+        <div className="mt-4 flex items-center gap-2 text-[11px] text-white/25">
+          <span>{thought.author_name}</span>
+          <span>&middot;</span>
+          <RelativeTime date={thought.created_at} />
+          <span>&middot;</span>
+          <CountdownTimer createdAt={thought.created_at} />
         </div>
       </article>
 
-      <div className="win-panel overflow-hidden">
-        <div className="win-titlebar">
-          <span>Comments</span>
-          <TitleBarButtons />
-        </div>
-        <div className="p-4">
-          <CommentSection thoughtId={thought.id} initialComments={comments} />
-        </div>
+      <div className="rounded-lg border border-white/[0.06] bg-void-surface p-5">
+        <CommentSection thoughtId={thought.id} initialComments={comments} />
       </div>
     </div>
   );

@@ -15,18 +15,17 @@ export function RelativeTime({
   );
 
   useEffect(() => {
-    const update = () =>
+    const interval = setInterval(() => {
       setText(formatDistanceToNow(new Date(date), { addSuffix: true }));
-
-    const interval = setInterval(update, 30_000);
+    }, 30_000);
     return () => clearInterval(interval);
   }, [date]);
 
   return (
     <time
       dateTime={date}
+      className={className ?? "text-[11px] text-white/20"}
       title={new Date(date).toLocaleString()}
-      className={className ?? "text-xs text-gray-400 dark:text-gray-500"}
       suppressHydrationWarning
     >
       {text}
