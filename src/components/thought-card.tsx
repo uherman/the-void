@@ -35,7 +35,7 @@ export function ThoughtCard({ thought }: { thought: ThoughtWithMeta }) {
 
         <div className="p-3">
           <div className="win-inset p-3">
-            <p className="text-[15px] leading-relaxed text-gray-800 dark:text-gray-200 whitespace-pre-wrap break-words">
+            <p className="text-[15px] leading-relaxed text-gray-800 dark:text-gray-200 whitespace-pre-wrap break-words font-mono">
               {thought.content}
             </p>
           </div>
