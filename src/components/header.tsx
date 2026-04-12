@@ -22,12 +22,18 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-2xl items-center justify-between px-4">
+    <header className="sticky top-0 z-40 win-panel">
+      <div className="mx-auto flex h-12 max-w-2xl items-center justify-between px-3">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="h-7 w-7 rounded-lg bg-blue-600 flex items-center justify-center">
+          <div
+            className="h-7 w-7 flex items-center justify-center bg-blue-600 text-white"
+            style={{
+              boxShadow:
+                "inset 1px 1px 0 rgba(255,255,255,0.3), inset -1px -1px 0 rgba(0,0,0,0.3)",
+            }}
+          >
             <svg
-              className="h-4 w-4 text-white"
+              className="h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -40,19 +46,19 @@ export function Header() {
               />
             </svg>
           </div>
-          <span className="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          <span className="font-pixel text-lg text-gray-800 dark:text-gray-100 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
             Thoughts
           </span>
         </Link>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           {isLoaded && !editing && (
             <button
               onClick={() => {
                 setInput(displayName === "Anonymous" ? "" : displayName);
                 setEditing(true);
               }}
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors cursor-pointer"
+              className="win-button px-2 py-1 text-xs text-gray-700 dark:text-gray-300"
               title="Change name"
             >
               {displayName}
@@ -67,22 +73,24 @@ export function Header() {
               }}
               className="flex items-center gap-1.5"
             >
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                maxLength={MAX_DISPLAY_NAME_LENGTH}
-                autoFocus
-                onBlur={() => {
-                  if (!saving) setEditing(false);
-                }}
-                className="w-28 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-sm text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500"
-              />
+              <div className="win-inset">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  maxLength={MAX_DISPLAY_NAME_LENGTH}
+                  autoFocus
+                  onBlur={() => {
+                    if (!saving) setEditing(false);
+                  }}
+                  className="w-24 bg-transparent px-1.5 py-0.5 text-xs text-gray-800 dark:text-gray-200 focus:outline-none"
+                />
+              </div>
               <button
                 type="submit"
                 disabled={!input.trim() || saving}
                 onMouseDown={(e) => e.preventDefault()}
-                className="rounded-md bg-blue-600 px-2 py-1 text-xs font-medium text-white hover:bg-blue-700 disabled:opacity-50 transition-colors cursor-pointer"
+                className="win-button-primary px-2 py-0.5 text-xs font-bold"
               >
                 Save
               </button>

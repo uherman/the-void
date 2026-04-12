@@ -28,7 +28,7 @@ export function CommentSection({
 
   return (
     <div>
-      <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
+      <h3 className="text-sm font-pixel text-gray-500 dark:text-gray-400 mb-3">
         {comments.length} {comments.length === 1 ? "comment" : "comments"}
       </h3>
 
@@ -48,15 +48,15 @@ export function CommentSection({
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              <div className="rounded-lg bg-gray-50 dark:bg-gray-800/50 p-3">
+              <div className="win-inset p-3">
                 <div className="flex items-center gap-2 mb-1">
-                  <div className="h-5 w-5 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-[8px] font-bold text-white select-none">
+                  <div className="h-5 w-5 rounded-sm bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-[8px] font-bold text-white select-none">
                     {comment.author_name.charAt(0).toUpperCase()}
                   </div>
                   <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
                     {comment.author_name}
                   </span>
-                  <span className="text-gray-300 dark:text-gray-700">
+                  <span className="text-gray-300 dark:text-gray-600">
                     &middot;
                   </span>
                   <RelativeTime date={comment.created_at} />

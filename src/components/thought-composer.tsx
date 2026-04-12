@@ -5,6 +5,16 @@ import { useUser } from "@/lib/user-context";
 import { createThought } from "@/actions/thoughts";
 import { MAX_THOUGHT_LENGTH } from "@/lib/constants";
 
+function TitleBarButtons() {
+  return (
+    <div className="flex gap-[3px] ml-auto">
+      <span className="win-titlebar-btn">_</span>
+      <span className="win-titlebar-btn">&#9633;</span>
+      <span className="win-titlebar-btn">&times;</span>
+    </div>
+  );
+}
+
 export function ThoughtComposer() {
   const { userId, isLoaded } = useUser();
   const [content, setContent] = useState("");
@@ -49,49 +59,71 @@ export function ThoughtComposer() {
 
   return (
     <form onSubmit={handleSubmit} className="mb-6">
-      <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 focus-within:border-blue-300 dark:focus-within:border-blue-700 transition-colors">
-        <textarea
-          ref={textareaRef}
-          value={content}
-          onChange={(e) => {
-            setContent(e.target.value);
-            setError(null);
-          }}
-          onKeyDown={handleKeyDown}
-          placeholder="What's on your mind?"
-          rows={3}
-          className="w-full resize-none bg-transparent text-[15px] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none leading-relaxed"
-        />
+      <div className="win-panel overflow-hidden">
+        <div className="win-titlebar">
+          <svg
+            className="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+            />
+          </svg>
+          <span>New Thought</span>
+          <TitleBarButtons />
+        </div>
 
-        <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-100 dark:border-gray-800">
-          <div className="flex items-center gap-2">
-            <span
-              className={`text-xs tabular-nums ${
-                isOverLimit
-                  ? "text-red-500"
-                  : charCount > MAX_THOUGHT_LENGTH * 0.9
-                    ? "text-amber-500"
-                    : "text-gray-400 dark:text-gray-500"
-              }`}
-            >
-              {charCount}/{MAX_THOUGHT_LENGTH}
-            </span>
-            {error && (
-              <span className="text-xs text-red-500">{error}</span>
-            )}
+        <div className="p-3">
+          <div className="win-inset p-2 mb-3">
+            <textarea
+              ref={textareaRef}
+              value={content}
+              onChange={(e) => {
+                setContent(e.target.value);
+                setError(null);
+              }}
+              onKeyDown={handleKeyDown}
+              placeholder="What's on your mind?"
+              rows={3}
+              className="w-full resize-none bg-transparent text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none leading-relaxed"
+            />
           </div>
 
-          <button
-            type="submit"
-            disabled={!canSubmit}
-            className="rounded-lg bg-blue-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
-          >
-            {submitting ? "Posting..." : "Post"}
-          </button>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span
+                className={`text-xs tabular-nums ${
+                  isOverLimit
+                    ? "text-red-500"
+                    : charCount > MAX_THOUGHT_LENGTH * 0.9
+                      ? "text-amber-500"
+                      : "text-gray-500 dark:text-gray-400"
+                }`}
+              >
+                {charCount}/{MAX_THOUGHT_LENGTH}
+              </span>
+              {error && (
+                <span className="text-xs text-red-500">{error}</span>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              disabled={!canSubmit}
+              className="win-button-primary px-4 py-1.5 text-xs font-bold"
+            >
+              {submitting ? "Posting..." : "Post"}
+            </button>
+          </div>
         </div>
       </div>
-      <p className="mt-1.5 text-[11px] text-gray-400 dark:text-gray-600 text-right">
-        Press <kbd className="font-mono">Cmd+Enter</kbd> to post
+      <p className="mt-1.5 text-[11px] text-white/50 text-right font-pixel">
+        Press Cmd+Enter to post
       </p>
     </form>
   );

@@ -1,9 +1,9 @@
 export function EmptyState() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 text-center">
-      <div className="mb-4 h-16 w-16 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center py-16 text-center">
+      <div className="win-panel p-4 mb-4">
         <svg
-          className="h-8 w-8 text-gray-400 dark:text-gray-500"
+          className="h-10 w-10 text-gray-400"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -16,10 +16,10 @@ export function EmptyState() {
           />
         </svg>
       </div>
-      <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">
+      <h3 className="text-sm font-pixel text-white dark:text-gray-300">
         No thoughts yet
       </h3>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+      <p className="mt-1 text-sm text-white/70 dark:text-gray-500">
         Be the first to share what&apos;s on your mind.
       </p>
     </div>

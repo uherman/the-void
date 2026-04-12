@@ -16,18 +16,18 @@ export function ThemeToggle() {
   const mounted = useMounted();
 
   if (!mounted) {
-    return <div className="h-9 w-9" />;
+    return <div className="h-8 w-8" />;
   }
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative h-9 w-9 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+      className="relative win-button h-8 w-8 flex items-center justify-center"
       aria-label="Toggle theme"
     >
       {/* Sun icon */}
       <svg
-        className="h-4 w-4 text-gray-600 dark:text-gray-400 absolute transition-all duration-300 rotate-0 scale-100 dark:-rotate-90 dark:scale-0"
+        className="h-4 w-4 text-gray-700 dark:text-gray-300 absolute transition-all duration-300 rotate-0 scale-100 dark:-rotate-90 dark:scale-0"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -41,7 +41,7 @@ export function ThemeToggle() {
       </svg>
       {/* Moon icon */}
       <svg
-        className="h-4 w-4 text-gray-600 dark:text-gray-400 absolute transition-all duration-300 rotate-90 scale-0 dark:rotate-0 dark:scale-100"
+        className="h-4 w-4 text-gray-700 dark:text-gray-300 absolute transition-all duration-300 rotate-90 scale-0 dark:rotate-0 dark:scale-100"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"

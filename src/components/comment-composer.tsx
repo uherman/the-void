@@ -39,27 +39,29 @@ export function CommentComposer({ thoughtId }: { thoughtId: string }) {
   return (
     <form onSubmit={handleSubmit} className="mt-4">
       <div className="flex gap-2">
-        <input
-          type="text"
-          value={content}
-          onChange={(e) => {
-            setContent(e.target.value);
-            setError(null);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey && canSubmit) {
-              e.preventDefault();
-              handleSubmit(e);
-            }
-          }}
-          placeholder="Write a comment..."
-          maxLength={MAX_COMMENT_LENGTH + 10}
-          className="flex-1 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-3 py-2 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
-        />
+        <div className="flex-1 win-inset">
+          <input
+            type="text"
+            value={content}
+            onChange={(e) => {
+              setContent(e.target.value);
+              setError(null);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey && canSubmit) {
+                e.preventDefault();
+                handleSubmit(e);
+              }
+            }}
+            placeholder="Write a comment..."
+            maxLength={MAX_COMMENT_LENGTH + 10}
+            className="w-full bg-transparent px-2 py-1.5 text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none"
+          />
+        </div>
         <button
           type="submit"
           disabled={!canSubmit}
-          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+          className="win-button-primary px-4 py-1.5 text-sm font-bold"
         >
           {submitting ? "..." : "Reply"}
         </button>

@@ -3,7 +3,13 @@
 import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 
-export function RelativeTime({ date }: { date: string }) {
+export function RelativeTime({
+  date,
+  className,
+}: {
+  date: string;
+  className?: string;
+}) {
   const [text, setText] = useState(() =>
     formatDistanceToNow(new Date(date), { addSuffix: true })
   );
@@ -20,7 +26,7 @@ export function RelativeTime({ date }: { date: string }) {
     <time
       dateTime={date}
       title={new Date(date).toLocaleString()}
-      className="text-xs text-gray-400 dark:text-gray-500"
+      className={className ?? "text-xs text-gray-400 dark:text-gray-500"}
       suppressHydrationWarning
     >
       {text}

@@ -2,84 +2,118 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Catppuccin Latte (light) */
+/* ── Y2K Webcore — Light (Deep Blue) ── */
 :root {
-  --ctp-white:    #eff1f5;
-  --ctp-gray-50:  #e6e9ef;
-  --ctp-gray-100: #dce0e8;
-  --ctp-gray-200: #ccd0da;
-  --ctp-gray-300: #bcc0cc;
-  --ctp-gray-400: #acb0be;
-  --ctp-gray-500: #9ca0b0;
-  --ctp-gray-600: #6c6f85;
-  --ctp-gray-700: #5c5f77;
-  --ctp-gray-800: #4c4f69;
-  --ctp-gray-900: #4c4f69;
-  --ctp-gray-950: #292c3c;
+  --page-bg: #060e24;
 
-  --ctp-blue-300:  #7287fd;  /* Lavender — focus borders */
-  --ctp-blue-400:  #7287fd;  /* Lavender — avatar gradient, text accents */
-  --ctp-blue-500:  #7135c2;  /* muted purple — focus rings */
-  --ctp-blue-600:  #7135c2;  /* muted purple — buttons, logo */
-  --ctp-blue-700:  #612db0;  /* muted purple darker — hover */
+  --ctp-white:    #eaf0ff;
+  --ctp-gray-50:  #101c38;
+  --ctp-gray-100: #dce4f4;
+  --ctp-gray-200: #4a5a78;
+  --ctp-gray-300: #384868;
+  --ctp-gray-400: #8898b4;
+  --ctp-gray-500: #7888a8;
+  --ctp-gray-600: #6878a0;
+  --ctp-gray-700: #b8c4d8;
+  --ctp-gray-800: #ccd4e6;
+  --ctp-gray-900: #101c38;
+  --ctp-gray-950: #060e24;
 
-  --ctp-purple-500:  #8839ef;  /* Mauve — avatar gradient end */
-  --ctp-emerald-400: #179299;
-  --ctp-cyan-500:    #04a5e5;
-  --ctp-red-500:     #d20f39;
-  --ctp-amber-500:   #df8e1d;
+  --ctp-blue-300:  #93c5fd;
+  --ctp-blue-400:  #60a5fa;
+  --ctp-blue-500:  #3b82f6;
+  --ctp-blue-600:  #2563eb;
+  --ctp-blue-700:  #1d4ed8;
+
+  --ctp-purple-500:  #a78bfa;
+  --ctp-emerald-400: #34d399;
+  --ctp-cyan-500:    #22d3ee;
+  --ctp-red-500:     #f87171;
+  --ctp-amber-500:   #fbbf24;
+
+  --win-highlight:     #283858;
+  --win-light:         #1e2e50;
+  --win-shadow:        #060c1c;
+  --win-dark-shadow:   #030610;
+  --win-surface:       #101c38;
+  --win-titlebar-from: #2563eb;
+  --win-titlebar-to:   #60a5fa;
+  --win-input-bg:      #0a1428;
+
+  --win-btn-highlight: #5094f5;
+  --win-btn-light:     #3b82f6;
+  --win-btn-shadow:    #1d4ed8;
+  --win-btn-dark:      #163da0;
 }
 
-/* Catppuccin Macchiato (dark) */
+/* ── Y2K Webcore — Dark (Deep Purple) ── */
 .dark {
-  --ctp-white:    #eff1f5;  /* keep near-white so text-white stays readable on colored bg */
-  --ctp-gray-50:  #24273a;
-  --ctp-gray-100: #cad3f5;
-  --ctp-gray-200: #b8c0e0;
-  --ctp-gray-300: #a5adcb;
-  --ctp-gray-400: #939ab7;
-  --ctp-gray-500: #8087a2;
-  --ctp-gray-600: #6e738d;
-  --ctp-gray-700: #494d64;
-  --ctp-gray-800: #363a4f;
-  --ctp-gray-900: #24273a;
-  --ctp-gray-950: #181926;
+  --page-bg: #0e0520;
 
-  --ctp-blue-300:  #c6a0f6;  /* Mauve — focus borders */
-  --ctp-blue-400:  #c6a0f6;  /* Mauve — text accents */
-  --ctp-blue-500:  #c6a0f6;  /* Mauve — focus rings */
-  --ctp-blue-600:  #6228c0;  /* muted purple — buttons (~7.8:1 with white) */
-  --ctp-blue-700:  #5824aa;  /* muted purple darker — hover */
+  --ctp-white:    #f0ecf8;
+  --ctp-gray-50:  #1a1432;
+  --ctp-gray-100: #d4d0e2;
+  --ctp-gray-200: #bab6cc;
+  --ctp-gray-300: #a09cb8;
+  --ctp-gray-400: #8680a4;
+  --ctp-gray-500: #6c668e;
+  --ctp-gray-600: #524c74;
+  --ctp-gray-700: #382e56;
+  --ctp-gray-800: #241c40;
+  --ctp-gray-900: #1a1432;
+  --ctp-gray-950: #0e0520;
 
-  --ctp-purple-500:  #b7bdf8;  /* Lavender — avatar gradient end */
-  --ctp-emerald-400: #8bd5ca;
-  --ctp-cyan-500:    #91d7e3;
-  --ctp-red-500:     #ed8796;
-  --ctp-amber-500:   #eed49f;
+  --ctp-blue-300:  #c4b5fd;
+  --ctp-blue-400:  #a78bfa;
+  --ctp-blue-500:  #8b5cf6;
+  --ctp-blue-600:  #7c3aed;
+  --ctp-blue-700:  #6d28d9;
+
+  --ctp-purple-500:  #e879f9;
+  --ctp-emerald-400: #6ee7b7;
+  --ctp-cyan-500:    #67e8f9;
+  --ctp-red-500:     #f87171;
+  --ctp-amber-500:   #fbbf24;
+
+  --win-highlight:     #3d3860;
+  --win-light:         #302b50;
+  --win-shadow:        #0a0614;
+  --win-dark-shadow:   #050310;
+  --win-surface:       #1e1838;
+  --win-titlebar-from: #5b21b6;
+  --win-titlebar-to:   #7c3aed;
+  --win-input-bg:      #140e28;
+
+  --win-btn-highlight: #9f67f5;
+  --win-btn-light:     #8b5cf6;
+  --win-btn-shadow:    #5b21b6;
+  --win-btn-dark:      #4c1d95;
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-pixel: var(--font-vt323);
 
-  --color-white:    var(--ctp-white);
-  --color-gray-50:  var(--ctp-gray-50);
-  --color-gray-100: var(--ctp-gray-100);
-  --color-gray-200: var(--ctp-gray-200);
-  --color-gray-300: var(--ctp-gray-300);
-  --color-gray-400: var(--ctp-gray-400);
-  --color-gray-500: var(--ctp-gray-500);
-  --color-gray-600: var(--ctp-gray-600);
-  --color-gray-700: var(--ctp-gray-700);
-  --color-gray-800: var(--ctp-gray-800);
-  --color-gray-900: var(--ctp-gray-900);
-  --color-gray-950: var(--ctp-gray-950);
+  --color-page:      var(--page-bg);
+  --color-white:     var(--ctp-white);
+  --color-gray-50:   var(--ctp-gray-50);
+  --color-gray-100:  var(--ctp-gray-100);
+  --color-gray-200:  var(--ctp-gray-200);
+  --color-gray-300:  var(--ctp-gray-300);
+  --color-gray-400:  var(--ctp-gray-400);
+  --color-gray-500:  var(--ctp-gray-500);
+  --color-gray-600:  var(--ctp-gray-600);
+  --color-gray-700:  var(--ctp-gray-700);
+  --color-gray-800:  var(--ctp-gray-800);
+  --color-gray-900:  var(--ctp-gray-900);
+  --color-gray-950:  var(--ctp-gray-950);
 
-  --color-blue-300:  var(--ctp-blue-300);
-  --color-blue-400:  var(--ctp-blue-400);
-  --color-blue-500:  var(--ctp-blue-500);
-  --color-blue-600:  var(--ctp-blue-600);
-  --color-blue-700:  var(--ctp-blue-700);
+  --color-blue-300:    var(--ctp-blue-300);
+  --color-blue-400:    var(--ctp-blue-400);
+  --color-blue-500:    var(--ctp-blue-500);
+  --color-blue-600:    var(--ctp-blue-600);
+  --color-blue-700:    var(--ctp-blue-700);
 
   --color-purple-500:  var(--ctp-purple-500);
   --color-emerald-400: var(--ctp-emerald-400);
@@ -88,8 +122,9 @@
   --color-amber-500:   var(--ctp-amber-500);
 }
 
+/* ── Transitions ── */
 * {
-  transition-property: background-color, border-color, color;
+  transition-property: background-color, border-color, color, box-shadow;
   transition-duration: 200ms;
   transition-timing-function: ease-in-out;
 }
@@ -114,22 +149,124 @@
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* Scrollbar styling */
+/* ── Win98-Style 3D Panels ── */
+.win-panel {
+  background: var(--win-surface);
+  box-shadow:
+    inset 1px 1px 0 var(--win-highlight),
+    inset 2px 2px 0 var(--win-light),
+    inset -1px -1px 0 var(--win-dark-shadow),
+    inset -2px -2px 0 var(--win-shadow);
+}
+
+.win-inset {
+  background: var(--win-input-bg);
+  box-shadow:
+    inset 1px 1px 0 var(--win-dark-shadow),
+    inset 2px 2px 0 var(--win-shadow),
+    inset -1px -1px 0 var(--win-highlight),
+    inset -2px -2px 0 var(--win-light);
+}
+
+/* ── Win98 Buttons ── */
+.win-button {
+  background: var(--win-surface);
+  box-shadow:
+    inset 1px 1px 0 var(--win-highlight),
+    inset -1px -1px 0 var(--win-dark-shadow),
+    inset 2px 2px 0 var(--win-light),
+    inset -2px -2px 0 var(--win-shadow);
+  cursor: pointer;
+  user-select: none;
+}
+
+.win-button:active:not(:disabled) {
+  box-shadow:
+    inset 1px 1px 0 var(--win-dark-shadow),
+    inset -1px -1px 0 var(--win-highlight),
+    inset 2px 2px 0 var(--win-shadow),
+    inset -2px -2px 0 var(--win-light);
+}
+
+.win-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.win-button-primary {
+  background: var(--win-titlebar-from);
+  color: white;
+  box-shadow:
+    inset 1px 1px 0 var(--win-btn-highlight),
+    inset -1px -1px 0 var(--win-btn-dark),
+    inset 2px 2px 0 var(--win-btn-light),
+    inset -2px -2px 0 var(--win-btn-shadow);
+  cursor: pointer;
+  user-select: none;
+}
+
+.win-button-primary:hover:not(:disabled) {
+  background: var(--win-btn-shadow);
+}
+
+.win-button-primary:active:not(:disabled) {
+  box-shadow:
+    inset 1px 1px 0 var(--win-btn-dark),
+    inset -1px -1px 0 var(--win-btn-highlight),
+    inset 2px 2px 0 var(--win-btn-shadow),
+    inset -2px -2px 0 var(--win-btn-light);
+}
+
+.win-button-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Title Bar ── */
+.win-titlebar {
+  background: linear-gradient(to right, var(--win-titlebar-from), var(--win-titlebar-to));
+  color: white;
+  padding: 4px 8px;
+  font-family: var(--font-pixel), monospace;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.win-titlebar-btn {
+  width: 16px;
+  height: 14px;
+  background: #c0c0c0;
+  box-shadow:
+    inset 1px 1px 0 #e0e0e0,
+    inset -1px -1px 0 #606060;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-family: var(--font-sans), system-ui;
+  line-height: 1;
+  color: #333333;
+}
+
+/* ── Retro Scrollbar ── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--win-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--ctp-gray-200);
-  border-radius: 3px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: var(--ctp-gray-700);
+  background: var(--win-surface);
+  box-shadow:
+    inset 1px 1px 0 var(--win-highlight),
+    inset -1px -1px 0 var(--win-dark-shadow);
 }
